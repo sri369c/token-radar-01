@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar: pre-token protocols ranked by implied value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<a class="skip" href="#board">Skip to the board</a>
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <span class="mark" aria-hidden="true"></span>
+      <div>
+        <h1>Token Radar</h1>
+        <p class="sub" id="snap"></p>
+      </div>
+    </div>
+    <nav class="tabs" id="tabs" aria-label="Views"></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="controls" id="controls" aria-label="Filters and sorting">
+    <label class="field grow">
+      <span>Search protocol or chain</span>
+      <input id="q" type="search" placeholder="e.g. lending, Solana, delta" autocomplete="off">
+    </label>
+    <label class="field">
+      <span>Category</span>
+      <select id="cat"></select>
+    </label>
+    <label class="field">
+      <span>Chain</span>
+      <select id="chain"></select>
+    </label>
+    <label class="field">
+      <span>Sort by</span>
+      <select id="sort">
+        <option value="rank">Rank (implied value)</option>
+        <option value="tvl">TVL, largest first</option>
+        <option value="growth">7-day change, strongest first</option>
+        <option value="age">Longest without a token</option>
+        <option value="mcap">Market cap, largest first</option>
+      </select>
+    </label>
+    <label class="toggle">
+      <input id="watch" type="checkbox">
+      <span>Watchlist only</span>
+    </label>
+  </section>
+
+  <p class="count" id="count" role="status"></p>
+
+  <section id="board" tabindex="-1" aria-live="polite"></section>
+  <section id="method" hidden></section>
+</main>
+
+<aside id="detail" class="detail" hidden aria-label="Protocol detail"></aside>
+
+<footer class="wrap foot">
+  <p id="foot"></p>
+</footer>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
